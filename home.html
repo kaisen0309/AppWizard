@@ -1,0 +1,117 @@
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <title>首頁</title>
+    <link rel="stylesheet" href="home_style.css">
+
+    <script type=”text/javascript” src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+<script>
+$('.variable-width').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  centerMode: true,
+  variableWidth: true
+});
+</script>
+</head>
+<body>
+<!-- 上半 -->
+    <div style=" margin: 40px 80px 10px;">
+        <p style="display: inline-flex"><font size="5px">個人資料</font></p>
+        <p style="display: inline-flex; margin-left: 410px;"><font size="5px">熱門分析App</font></p>
+
+    </div>
+    <div class="flex-container ">
+        <div class="home_info">
+            <p>姓名：陳某某</p><br>
+            <p>生日：2000/12/01</p><br>
+            <p>電話：0912345678</p><br>
+            <p>上次分析：2023/12/01</p><br>
+            <p>權限狀態：一般使用者</p><br>
+            <p>總分析次數：4</p><br>
+        </div>
+
+        <div class="home_analysis">
+            <div class="home_iconContainer">
+                <!-- 輪播start -->
+                <div class="slider">
+                    <div class="slide-container">
+                      <div class="slide" style="margin-left:20px"><img src="wangping.png" width="90" height="90"></div>
+                      <div class="slide"><img src="happymore.png" width="90" height="90"></div>
+                      <div class="slide"><img src="ieat.png" width="90" height="90"></div>
+                      <div class="slide"><img src="mc.png" width="90" height="90"></div>
+                      <div class="slide"><img src="oneblue.png" width="90" height="90"></div>
+                      <div class="slide"><img src="pk.png" width="90" height="90"></div>
+                      <div class="slide"><img src="sushi.png" width="90" height="90"></div>
+                      <div class="slide"><img src="threeshon.png" width="90" height="90"></div>
+                      <div class="slide"><img src="wacity.png" width="90" height="90"></div>
+
+
+                    </div>
+                    <div class="slider-btn prev-btn" onclick="prevSlide()">❮</div>
+                    <div class="slider-btn next-btn" onclick="nextSlide()">❯</div>
+                  </div>
+                  <!-- js start -->
+                  <script>
+                    let currentIndex = 0;
+                  
+                    function showSlide(index) {
+                      const slideContainer = document.querySelector('.slide-container');
+                      const slideWidth = document.querySelector('.slide').offsetWidth;
+                      slideContainer.style.transform = `translateX(${-index * slideWidth}px)`;
+                      currentIndex = index;
+                    }
+                  
+                    function nextSlide() {
+                      const totalSlides = document.querySelectorAll('.slide').length;
+                      currentIndex = (currentIndex + 1) % totalSlides;
+                      showSlide(currentIndex);
+                    }
+                  
+                    function prevSlide() {
+                      const totalSlides = document.querySelectorAll('.slide').length;
+                      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                      showSlide(currentIndex);
+                    }
+                  </script>
+                  <!-- js end -->
+
+                <!-- 輪播end-->
+                <button style="margin-top: 15px">馬上分析</button>
+   
+            </div>
+            
+        </div>
+    
+   </div>
+
+<!-- 下半 -->
+   <div style=" margin: 20px 80px 0px;">
+    <p><font size="5px">歷史紀錄</font></p>
+    </div>
+
+   <div class="home_history">
+       <div >
+          <span class="history_title">分析日期</span>
+          <span class="history_title">分析對象</span>
+          <span class="history_title">分析時段</span>
+          <span class="history_title">評論數量</span>
+          <span class="history_title">處理建議</span>
+       </div>
+       <div class="history_info" >
+        <span class="history_title">2000/12/01</span>
+        <img style="margin-right: 120px;" src="wangping.png" width="60" height="60">
+        <span class="history_title">2023/12/01</span>
+        <span class="history_title">200</span>
+        <span class="history_title" style="margin-right: 40px">暫無</span>
+        <button>詳細結果</button>
+       </div>
+    </div>
+</body>
+
+</html>
